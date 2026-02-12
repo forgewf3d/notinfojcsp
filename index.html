@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    
     <title>NoteInfo - Tecnologia</title>
-    <meta name="description" content="Vendas e Manutenção de Notebooks e Computadores">
-
     <style>
         /* Reset básico */
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,6 +17,7 @@
             min-height: 100vh;
         }
 
+        /* Container principal */
         .card-container {
             width: 100%;
             max-width: 400px;
@@ -30,6 +28,7 @@
             align-items: center;
         }
 
+        /* Estilo da Foto / Logo */
         .logo-img {
             width: 180px;
             height: 180px;
@@ -40,6 +39,7 @@
             box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
         }
 
+        /* Textos */
         h1 {
             font-size: 26px;
             font-weight: bold;
@@ -56,6 +56,7 @@
             letter-spacing: 2px;
         }
 
+        /* Botões */
         .btn {
             display: flex;
             justify-content: center;
@@ -71,16 +72,19 @@
             font-size: 16px;
             border: 1px solid #333;
             transition: all 0.3s ease;
+            cursor: pointer;
+            font-family: inherit;
         }
 
         .btn:hover, .btn:active {
-            background-color: #D4AF37; 
+            background-color: #D4AF37;
             color: #000;
             border-color: #D4AF37;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
         }
 
+        /* Rodapé */
         .footer {
             margin-top: 30px;
             font-size: 12px;
@@ -105,6 +109,10 @@
         <a href="https://wa.me/5512997775860" class="btn" target="_blank">
             WhatsApp
         </a>
+
+        <button class="btn" onclick="copiarPix()">
+            💠 Copiar Chave PIX (CNPJ)
+        </button>
 
         <a href="tel:+551239611110" class="btn">
             Ligar para Loja
@@ -132,6 +140,21 @@
         </div>
 
     </div>
+
+    <script>
+        function copiarPix() {
+            // Chave CNPJ configurada
+            const chavePix = "14.739.689/0001-85"; 
+            
+            navigator.clipboard.writeText(chavePix).then(() => {
+                alert("Chave PIX (CNPJ) copiada com sucesso!");
+            }).catch(err => {
+                console.error('Erro ao copiar: ', err);
+                // Caso o celular bloqueie a cópia automática, mostra a chave para copiar manualmente
+                prompt("Copie a chave abaixo:", chavePix);
+            });
+        }
+    </script>
 
 </body>
 </html>
